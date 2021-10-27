@@ -9,14 +9,16 @@
 from random import randint
 from application.ui import UI
 from unidecode import unidecode
+from util.request import Api
 
 
 def game(data):
-
+    """ Realiza a lógica do jogo da forca.
+    """
     # defining const variables
     WORD_NUMBER = randint(0, len(data) - 1)
-    CATEGORY = data[WORD_NUMBER]['nome']
-    WORD = list(unidecode(data[WORD_NUMBER]['pais']).lower())
+    CATEGORY = data[WORD_NUMBER]['localizacao']['regiao']['nome']
+    WORD = list(unidecode(data[WORD_NUMBER]['nome']['abreviado']).lower())
     
     # defining variables for gaming
     lifes = ['❤', '❤', '❤', '❤', '❤']
@@ -86,21 +88,10 @@ def game(data):
 
 def main():
 
+    api = Api('https://servicodados.ibge.gov.br/api/v1/paises/')
+    
     # getting data
-    data = [
-            {
-                'nome': 'América do Sul',
-                'pais': 'Brasil'
-            },
-            {
-                'nome': 'Europa',
-                'pais': 'Espanha'
-            },
-            {
-                'nome': 'Ásia',
-                'pais': 'Japão'
-            }
-        ]
+    data = api.get_data()
     
     # starting the game
     game(data)

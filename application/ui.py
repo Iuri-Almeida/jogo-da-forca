@@ -1,4 +1,5 @@
 from os import system
+from typing import List
 
 
 class UI(object):
@@ -33,7 +34,7 @@ class UI(object):
         print(f'Localização: {category}')
 
     @staticmethod
-    def show_lifes(lifes: list[str]) -> None:
+    def show_lifes(lifes: List[str]) -> None:
         """ Mostra as vidas do jogador.
 
         Returns:
@@ -42,7 +43,7 @@ class UI(object):
         print(f'Vidas: {" ".join(lifes)}')
 
     @staticmethod
-    def show_hinted_words(hinted_words: list[str]) -> None:
+    def show_hinted_words(hinted_words: List[str]) -> None:
         """ Mostra as letras já chutadas pelo jogador.
 
         Returns:
@@ -92,19 +93,12 @@ class UI(object):
             + "\n|      /|\\"
             + "\n|       |"
             + "\n|      / \\"
-            + "\n|",
-            " _______"
-            + "\n|"
-            + "\n|      💀"
-            + "\n|      /|\\"
-            + "\n|       |"
-            + "\n|      / \\"
             + "\n|"
         ]
         print(GALLOWS_DISPLAY[gallow_controller])
 
     @staticmethod
-    def show_underlines(underlines: list[str]) -> None:
+    def show_underlines(underlines: List[str]) -> None:
         """ Mostra os campos a serem preenchidos pelo jogador.
 
         Returns:
@@ -128,5 +122,13 @@ class UI(object):
         Returns:
             None
         """
+        x = " _______" \
+            + "\n|"\
+            + "\n|      💀" \
+            + "\n|      /|\\" \
+            + "\n|       |" \
+            + "\n|      / \\" \
+            + "\n|"
+        print(x)
         print(f'Você perdeu! A palavra sorteada foi: {word.upper()}')
 
