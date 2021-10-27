@@ -106,6 +106,7 @@ def main() -> None:
 
         if answer == 'n':
             break
+
         game(data)
 
 
