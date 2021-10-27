@@ -114,7 +114,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f'{Color.COLOR_GREEN}Você venceu! A palavra sorteada foi: {word.upper()}{Color.RESET}')
+        print(f'{Color.COLOR_GREEN}Você venceu! A palavra sorteada foi: {word.upper()}{Color.RESET}\n')
 
     @staticmethod
     def show_loser(word: str) -> None:

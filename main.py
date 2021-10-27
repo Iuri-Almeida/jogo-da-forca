@@ -28,7 +28,7 @@ def game(data: List[dict]) -> None:
     
     underlines = []
     for i in WORD:
-        if i == ' ' or i == '-':
+        if not i.isalpha():
             underlines.append(i)
             hits += 1
         else:
