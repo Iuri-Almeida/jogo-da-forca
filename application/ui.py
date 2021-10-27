@@ -1,5 +1,6 @@
 from os import system
 from typing import List
+from util.color import Color
 
 
 class UI(object):
@@ -22,7 +23,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f"### Seja bem vindo ao jogo da forca! ###\n")
+        print(f"{Color.COLOR_LIGHT_BLUE}### Seja bem vindo ao jogo da forca! ###{Color.RESET}\n")
 
     @staticmethod
     def show_category(category: str) -> None:
@@ -31,7 +32,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f'Localização: {category}')
+        print(f'{Color.UNDERLINE}{Color.COLOR_GREEN}Localização{Color.RESET}{Color.COLOR_GREEN}: {category}{Color.RESET}')
 
     @staticmethod
     def show_lifes(lifes: List[str]) -> None:
@@ -40,7 +41,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f'Vidas: {" ".join(lifes)}')
+        print(f'{Color.UNDERLINE}{Color.COLOR_RED}Vidas{Color.RESET}{Color.COLOR_RED}: {" ".join(lifes)}{Color.RESET}')
 
     @staticmethod
     def show_hinted_words(hinted_words: List[str]) -> None:
@@ -49,7 +50,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f'Letras já usadas: {", ".join(hinted_words)}')
+        print(f'{Color.UNDERLINE}{Color.COLOR_YELLOW}Letras já usadas{Color.RESET}{Color.COLOR_YELLOW}: {", ".join(hinted_words)}{Color.RESET}')
 
     @staticmethod
     def show_gallow(gallow_controller: int) -> None:
@@ -95,7 +96,7 @@ class UI(object):
             + "\n|      / \\"
             + "\n|"
         ]
-        print(GALLOWS_DISPLAY[gallow_controller])
+        print(f'{Color.COLOR_PURPLE}{GALLOWS_DISPLAY[gallow_controller]}{Color.RESET}\n')
 
     @staticmethod
     def show_underlines(underlines: List[str]) -> None:
@@ -104,7 +105,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f'Palavra: {" ".join(underlines)}')
+        print(f'{Color.COLOR_DARK_BLUE}Palavra: {" ".join(underlines)}{Color.RESET}\n')
 
     @staticmethod
     def show_champion(word: str) -> None:
@@ -122,13 +123,13 @@ class UI(object):
         Returns:
             None
         """
-        x = " _______" \
+        loser = " _______" \
             + "\n|"\
             + "\n|      💀" \
             + "\n|      /|\\" \
             + "\n|       |" \
             + "\n|      / \\" \
             + "\n|"
-        print(x)
+        print(loser)
         print(f'Você perdeu! A palavra sorteada foi: {word.upper()}')
 

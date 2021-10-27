@@ -1,5 +1,6 @@
 from requests import get
 from json import loads
+from typing import Union
 
 
 class Api(object):
@@ -19,7 +20,7 @@ class Api(object):
     def url(self, url: str) -> None:
         self.__url = url
 
-    def get_data(self) -> dict:
+    def get_data(self) -> Union[list, None]:
         res = get(self.url)
         if res.status_code == 200:
             data = res.text

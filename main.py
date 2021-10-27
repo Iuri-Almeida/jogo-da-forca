@@ -7,12 +7,13 @@
     GitHub: https://github.com/Iuri-Almeida/jogo-da-forca
 """
 from random import randint
-from application.ui import UI
 from unidecode import unidecode
+from typing import List
+from application.ui import UI
 from util.request import Api
 
 
-def game(data):
+def game(data: List[dict]) -> None:
     """ Realiza a lógica do jogo da forca.
     """
     # defining const variables
@@ -53,7 +54,7 @@ def game(data):
             
             if not hint:
                 pass
-            elif hint in hinted_words:
+            if hint in hinted_words:
                 msg = 'Esta letra já foi escolhida. '
             elif len(hint) != 1:
                 msg = 'É preciso digitar somente uma única letra. '
@@ -86,7 +87,7 @@ def game(data):
         UI.show_loser(''.join(WORD))
 
 
-def main():
+def main() -> None:
 
     api = Api('https://servicodados.ibge.gov.br/api/v1/paises/')
     
@@ -103,11 +104,11 @@ def main():
         while answer != 's' and answer != 'n':
             answer = input('Teste novamente. Deseja jogar novamente? (s/n) ').strip().lower()
 
-        if answer == 's':
-            game(data)
-        else:
+        if answer == 'n':
             break
+        game(data)
 
 
 if __name__ == '__main__':
     main()
+
