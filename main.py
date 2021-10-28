@@ -34,12 +34,13 @@ def game(data: List[dict]) -> None:
         else:
             underlines.append('_')
     
-    # Initializing game
-    UI.clear_screen()
-    UI.show_title()
     
     while lifes:
-
+        
+        
+        # Initializing game
+        UI.clear_screen()
+        UI.show_title()
         UI.show_category(CATEGORY)
         UI.show_lifes(lifes)
         UI.show_hinted_words(hinted_words)
@@ -63,8 +64,6 @@ def game(data: List[dict]) -> None:
 
             hint = unidecode(input(f'{msg}Informe seu chute: ')).lower().strip()
 
-        UI.clear_screen()
-
         hinted_words.append(hint)
 
         # check if it's one of the letter of the word
@@ -79,11 +78,13 @@ def game(data: List[dict]) -> None:
 
         # victory
         if hits == len(WORD):
+            UI.clear_screen()
             UI.show_champion(''.join(WORD))
             break
 
     # defeat
     if len(lifes) == 0:
+        UI.clear_screen()
         UI.show_loser(''.join(WORD))
 
 
