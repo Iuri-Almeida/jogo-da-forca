@@ -34,9 +34,7 @@ def game(data: List[dict]) -> None:
         else:
             underlines.append('_')
     
-    
     while lifes:
-        
         
         # Initializing game
         UI.clear_screen()

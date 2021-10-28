@@ -105,7 +105,7 @@ class UI(object):
         Returns:
             None
         """
-        print(f'{Color.COLOR_DARK_BLUE}Palavra: {" ".join(underlines)}{Color.RESET}\n')
+        print(f'{Color.UNDERLINE}{Color.COLOR_DARK_BLUE}Palavra{Color.RESET}{Color.COLOR_DARK_BLUE}: {" ".join(underlines)}{Color.RESET}\n')
 
     @staticmethod
     def show_champion(word: str) -> None:
